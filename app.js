@@ -17,7 +17,7 @@ var campgroundRoutes = require("./routes/campgrounds"),
 	indexRoutes      = require("./routes/index");
 	 
 
-mongoose.connect("mongodb+srv://Jay:VfLOLmplskLHBD8q@cluster0.dlnsw.mongodb.net/yelpcamp?retryWrites=true&w=majorityapp.use(bodyParser.urlencoded({extended: true}))", { 
+mongoose.connect("mongodb+srv://Jay:VfLOLmplskLHBD8q@cluster0.dlnsw.mongodb.net/<dbname>?retryWrites=true&w=majority", { 
 	useNewUrlParser: true, 
 	useUnifiedTopology: true, 
 	useFindAndModify: false,
@@ -28,10 +28,9 @@ mongoose.connect("mongodb+srv://Jay:VfLOLmplskLHBD8q@cluster0.dlnsw.mongodb.net/
 	console.log("ERROR", err.message)
 });
 
+mongodb+srv://Jay:VfLOLmplskLHBD8q@cluster0.dlnsw.mongodb.net/<dbname>?retryWrites=true&w=majority
 
 
-
-//mongodb+srv://Jay:<VfLOLmplskLHBD8q>@cluster0.dlnsw.mongodb.net/<dbname>?retryWrites=true&w=majority
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
