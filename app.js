@@ -4,7 +4,7 @@ var express       = require("express"),
     mongoose      = require("mongoose"),
 	Campground    = require("./models/campground"),
 	Comment       = require("./models/comment"),
-	flash 		  = require("connect-flash");
+	flash 		  = require("connect-flash"),
 	seedDB        = require("./seeds"),
 	passport      = require("passport"),
 	localStrategy = require("passport-local"),
@@ -17,7 +17,21 @@ var campgroundRoutes = require("./routes/campgrounds"),
 	indexRoutes      = require("./routes/index");
 	 
 
-mongoose.connect("mongodb://localhost/yelp_camp_v12", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect("mongodb+srv://Jay:VfLOLmplskLHBD8q@cluster0.dlnsw.mongodb.net/<dbname>?retryWrites=true&w=majorityapp.use(bodyParser.urlencoded({extended: true}))", { 
+	useNewUrlParser: true, 
+	useUnifiedTopology: true, 
+	useFindAndModify: false,
+	useCreateIndex: true
+}).then(() => {
+	console.log("Connceted to DB");
+}).catch(err => {
+	console.log("ERROR", err.message)
+});
+
+
+
+
+//mongodb+srv://Jay:<VfLOLmplskLHBD8q>@cluster0.dlnsw.mongodb.net/<dbname>?retryWrites=true&w=majority
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
