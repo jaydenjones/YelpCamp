@@ -28,8 +28,6 @@ mongoose.connect("mongodb+srv://Jay:VfLOLmplskLHBD8q@cluster0.dlnsw.mongodb.net/
 	console.log("ERROR", err.message)
 });
 
-mongodb+srv://Jay:VfLOLmplskLHBD8q@cluster0.dlnsw.mongodb.net/<dbname>?retryWrites=true&w=majority
-
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
