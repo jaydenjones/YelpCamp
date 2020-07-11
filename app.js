@@ -18,7 +18,7 @@ var campgroundRoutes = require("./routes/campgrounds"),
 	 
 
 var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12";
-mongoose.connect(url, { 
+mongoose.connect(process.env.DATABASEURL, { 
 	useNewUrlParser: true, 
 	useUnifiedTopology: true, 
 	useFindAndModify: false,
