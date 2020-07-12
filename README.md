@@ -1,5 +1,4 @@
 # YelpCamp
-Large-scale web application, showcasing both front-end and back-end capabilities
 
 This project exists as a way to put together front-end and back-end knowledge into a larger full-stack web application.
 YelpCamp is a Yelp-style application that allows one to add campgrounds and add comments/reviews similar to other popular review sites.
