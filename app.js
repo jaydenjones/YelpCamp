@@ -1,4 +1,4 @@
-var express       = require("express"),
+const express       = require("express"),
     app           = express(),
     bodyParser    = require("body-parser"),
     mongoose      = require("mongoose"),
@@ -12,12 +12,12 @@ var express       = require("express"),
 	methodOverride =  require("method-override");
 
 //requiring routes	
-var campgroundRoutes = require("./routes/campgrounds"),
+const campgroundRoutes = require("./routes/campgrounds"),
 	commentRoutes    = require("./routes/comments"),
 	indexRoutes      = require("./routes/index");
 	 
 
-var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12"
+let url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v12"
 
 mongoose.connect(url, { 
 	useNewUrlParser: true, 
@@ -25,7 +25,7 @@ mongoose.connect(url, {
 	useFindAndModify: false,
 	useCreateIndex: true
 }).then(() => {
-	console.log("Connceted to DB");
+	console.log("Connected to DB");
 }).catch(err => {
 	console.log("ERROR", err.message)
 });
@@ -38,6 +38,7 @@ app.use(methodOverride("_method"));
 app.use(flash());
 //seedDB(); //seed the database
 
+app.locals.moment = require('moment');
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({	 
 	secret: "ONCE AGAIN, FRAN IS THE CUTEST DOG!",
@@ -50,7 +51,7 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
 	res.locals.currentUser = req.user;
 	res.locals.error = req.flash("error");
 	res.locals.success = req.flash("success");
@@ -61,11 +62,11 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-// app.listen(3000, function(){
-// 	console.log("YelpCamp server has started!");
-// });
-
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(3000, () =>{
 	console.log("YelpCamp server has started!");
 });
+
+// app.listen(process.env.PORT, process.env.IP, function(){
+// 	console.log("YelpCamp server has started!");
+// });
 
