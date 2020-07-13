@@ -46,4 +46,8 @@ async function seedDB(){
 	
 }
  
+<<<<<<< HEAD
 module.exports = seedDB;
+=======
+module.exports = seedDB;
+>>>>>>> 900702837170139eb3ba9903e18cfd6b9acf44e0
