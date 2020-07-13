@@ -1,8 +1,8 @@
-var mongoose = require("mongoose");
-var Campground = require("./models/campground");
-var Comment   = require("./models/comment");
+const mongoose = require("mongoose");
+const Campground = require("./models/campground");
+const Comment   = require("./models/comment");
  
-var seeds = [
+let seeds = [
     {
         name: "Cloud's Rest", 
         image: "https://farm4.staticflickr.com/3795/10131087094_c1c0a1c859.jpg",
@@ -45,9 +45,6 @@ async function seedDB(){
 	}
 	
 }
- 
-<<<<<<< HEAD
+
 module.exports = seedDB;
-=======
-module.exports = seedDB;
->>>>>>> 900702837170139eb3ba9903e18cfd6b9acf44e0
+
